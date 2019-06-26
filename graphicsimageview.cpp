@@ -7,7 +7,6 @@
 **
 **************************************************************************/
 
-#include "graphicsimagescene.h"
 #include "graphicsimageview.h"
 
 GraphicsImageView::GraphicsImageView(QWidget *parent)
@@ -30,4 +29,14 @@ void GraphicsImageView::setImage(const QImage &image)
     m_graphicsImageScene->setImage(image);
 
     fitInView(rectf, Qt::KeepAspectRatio);
+}
+
+GraphicsImageScene::Mode GraphicsImageView::mode() const
+{
+    return m_graphicsImageScene->mode();
+}
+
+void GraphicsImageView::setMode(GraphicsImageScene::Mode mode)
+{
+    m_graphicsImageScene->setMode(mode);
 }

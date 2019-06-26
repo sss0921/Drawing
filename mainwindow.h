@@ -8,6 +8,7 @@
 **************************************************************************/
 
 #include <QImage>
+#include <QPixmap>
 #include <QMainWindow>
 
 namespace Ui {
@@ -26,8 +27,13 @@ private:
     void init();
     void onOpenActionTriggered();
     void onAboutActionTriggered();
+    void onPenActionTriggered(bool checked);
+    void onColorActionTriggered();
     void doOpenFile(const QString &filePath);
 
     Ui::MainWindow *ui;
+    QAction *m_penAction;
+    QAction *m_colorAction;
+    QColor m_color;
     QImage m_image;
 };

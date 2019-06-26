@@ -9,13 +9,17 @@
 
 #pragma once
 
+#include "graphicsimagescene.h"
+
 #include <QGraphicsView>
 
-class GraphicsImageScene;
 class GraphicsImageView : public QGraphicsView
 {
 public:
     GraphicsImageView(QWidget *parent = nullptr);
+
+    GraphicsImageScene::Mode mode() const;
+    void setMode(GraphicsImageScene::Mode mode);
 
     QImage image() const;
     void setImage(const QImage &image);
