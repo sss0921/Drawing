@@ -7,11 +7,16 @@
 **
 **************************************************************************/
 
+#include "mainwindow.h"
+
 #include <QApplication>
 
 int main(int agrc, char *agrv[])
 {
     QApplication app(agrc, agrv);
+
+    MainWindow w;
+    w.show();
 
     return app.exec();
 }
