@@ -56,4 +56,6 @@ void MainWindow::doOpenFile(const QString &filePath)
     } else {
         m_image = QImage(filePath);
     }
+
+    ui->graphicsView->setImage(m_image);
 }
