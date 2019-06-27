@@ -7,6 +7,8 @@
 **
 **************************************************************************/
 
+#include "recentfilesmenu.h"
+
 #include <QImage>
 #include <QPixmap>
 #include <QMainWindow>
@@ -23,6 +25,9 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void saveSettings();
+    void loadSettings();
+
 private:
     void init();
     void onOpenActionTriggered();
@@ -36,4 +41,5 @@ private:
     QAction *m_colorAction;
     QColor m_color;
     QImage m_image;
+    RecentFilesMenu *m_recentFilesMenu;
 };

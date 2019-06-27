@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
     , m_color(QColor(Qt::red))
     , m_image(QImage())
+    , m_recentFilesMenu(new RecentFilesMenu(this))
 {
     ui->setupUi(this);
     init();
@@ -28,6 +29,14 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::saveSettings()
+{
+}
+
+void MainWindow::loadSettings()
+{
 }
 
 void MainWindow::init()
@@ -48,6 +57,10 @@ void MainWindow::init()
 
     connect(m_penAction, &QAction::triggered, this, &MainWindow::onPenActionTriggered);
     connect(m_colorAction, &QAction::triggered, this, &MainWindow::onColorActionTriggered);
+
+    ui->actionRecentFiles->setMenu(m_recentFilesMenu);
+    connect(m_recentFilesMenu, &RecentFilesMenu::recentFileTriggered, this,
+            &MainWindow::doOpenFile);
 }
 
 void MainWindow::onOpenActionTriggered()
@@ -96,4 +109,5 @@ void MainWindow::doOpenFile(const QString &filePath)
     }
 
     ui->graphicsView->setImage(m_image);
+    m_recentFilesMenu->addRecentFile(filePath);
 }
