@@ -10,10 +10,9 @@
 #pragma once
 
 #include "graphicsimagescene.h"
+#include "graphicswheelview.h"
 
-#include <QGraphicsView>
-
-class GraphicsImageView : public QGraphicsView
+class GraphicsImageView : public GraphicsWheelView
 {
 public:
     GraphicsImageView(QWidget *parent = nullptr);

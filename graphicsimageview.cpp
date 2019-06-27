@@ -10,7 +10,7 @@
 #include "graphicsimageview.h"
 
 GraphicsImageView::GraphicsImageView(QWidget *parent)
-    : QGraphicsView(parent)
+    : GraphicsWheelView(parent)
     , m_graphicsImageScene(new GraphicsImageScene(this))
 {
     m_graphicsImageScene->setSceneRect(QRect(0, 0, 512, 512));
